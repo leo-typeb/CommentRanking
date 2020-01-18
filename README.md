@@ -3,8 +3,16 @@
 
 <img src="sample1.png" width=75%>
 
+## 動作環境
+- .Net Framework 4.5以降（Windows 8以降）
+- やります！アンコちゃんバージョン2.1.0以降のデータベースに対応。2.3.0.9でテスト済み。
+
+## 仕様
+- コテハンがついているユーザーはコテハンで表示されます
+- コテハンがついていないユーザーはプロフィールの名前が表示されます
+
 ## インストール
-こちらからzipファイルをダウンロードして解凍し起動します。
+こちらからzipファイルをダウンロードして解凍し、CommentRanking.exeを起動します。
 
 https://github.com/leo-typeb/CommentRanking/releases/download/v1.0/CommentRanking.zip
 
@@ -25,4 +33,3 @@ https://github.com/leo-typeb/CommentRanking/releases/download/v1.0/CommentRankin
 
 ## 注意事項
 - アンコちゃんのデータベースの破損を防止するため、必ずエクスポートしたデータベースを読み込んでください。
-- エラー処理を実装していないので、手順を誤ったときはCommentRankingを閉じて、再度起動から行ってください。
