@@ -4,7 +4,9 @@
 <img src="sample1.png" width=75%>
 
 ## インストール
-zipファイルをダウンロードして解凍し起動します。
+こちらからzipファイルをダウンロードして解凍し起動します。
+
+https://github.com/leo-typeb/CommentRanking/releases/download/v1.0/CommentRanking.zip
 
 ## 使い方
 
