@@ -58,27 +58,38 @@ namespace CommentRanking
 
         private void Reload_Click(object sender, EventArgs e)
         {
+            // clear form
+            ListView.Items.Clear();
             string community_id = this.CommunityId.Text;
             string year = this.Year.Text;
             Dictionary<string, string> database = Database.Load(this.database_connection, community_id, year);
-            Dictionary<string, List<Dictionary<string, string>>> name = CommentRanking.Name.Load(this.name_connection, community_id);
+            Dictionary<string, Dictionary<string, string>> name = CommentRanking.Name.Load(this.name_connection, community_id);
             int i = 0;
             foreach (KeyValuePair<string, string> record in database)
             {
-                string _name;
-                string _id = record.Key;
-                string comment_count = record.Value;
-                if (name[_id][1]["permhandlename"] != "")
+                try
                 {
-                    _name = name[_id][1]["permhandlename"];
-                } else
-                {
-                    _name = name[_id][0]["profilename"];
+                    string _name;
+                    string _id = record.Key;
+                    string comment_count = record.Value;
+                    if (name[_id]["permhandlename"] != "")
+                    {
+                        _name = name[_id]["permhandlename"];
+                    }
+                    else
+                    {
+                        _name = name[_id]["profilename"];
+                    }
+                    ListView.Items.Add((i + 1).ToString());
+                    ListView.Items[i].SubItems.Add(_name);
+                    ListView.Items[i].SubItems.Add(comment_count);
+                    i++;
                 }
-                ListView.Items.Add((i + 1).ToString());
-                ListView.Items[i].SubItems.Add(_name);
-                ListView.Items[i].SubItems.Add(comment_count);
-                i++;
+                catch (System.Collections.Generic.KeyNotFoundException)
+                {
+                    continue;
+                }
+
             }
         }
     }
