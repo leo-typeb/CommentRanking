@@ -13,10 +13,10 @@ namespace CommentRanking
         {
             return new SQLiteConnection("Data Source=" + filePath + ";Version=3");
         }
-        public static Dictionary<string, List<Dictionary<string, string>>> Load(SQLiteConnection con, string cid)
+        public static Dictionary<string, Dictionary<string, string>> Load(SQLiteConnection con, string cid)
         {
             //
-            Dictionary<string, List<Dictionary<string, string>>> name = new Dictionary<string, List<Dictionary<string, string>>> ();
+            Dictionary<string, Dictionary<string, string>> name = new Dictionary<string, Dictionary<string, string>> ();
             con.Open();
             try
             {
@@ -30,14 +30,10 @@ namespace CommentRanking
                         string id = reader.GetValue(0).ToString();
                         string profilename = reader.GetValue(1).ToString();
                         string permhandlename = reader.GetValue(2).ToString();
-                        Dictionary<string, string> profile = new Dictionary<string, string>();
-                        Dictionary<string, string> handle = new Dictionary<string, string>();
-                        profile.Add("profilename", profilename);
-                        handle.Add("permhandlename", permhandlename);
-                        List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
-                        list.Add(profile);
-                        list.Add(handle);
-                        name.Add(id, list);
+                        Dictionary<string, string> userdata = new Dictionary<string, string> ();
+                        userdata.Add("profilename", profilename);
+                        userdata.Add("permhandlename", permhandlename);
+                        name.Add(id, userdata);
                     }
                     reader.Close();
                 }
