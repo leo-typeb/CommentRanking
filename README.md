@@ -16,7 +16,7 @@
 ## インストール
 こちらからzipファイルをダウンロードして解凍し、CommentRanking.exeを起動します。
 
-https://github.com/leo-typeb/CommentRanking/releases/download/v1.0/CommentRanking.zip
+https://github.com/leo-typeb/CommentRanking/releases/download/v1.1/CommentRanking.zip
 
 ## 使い方
 
